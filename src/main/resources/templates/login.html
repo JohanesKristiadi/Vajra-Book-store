@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Book Management Login</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+<style>
+    body {
+        font-family: sans-serif;
+    }
+
+    .sidenav {
+        height: 100%;
+        background-color: #7386D5;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+
+    .main {
+        padding: 0 10px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .login-form {
+            margin-top: 10%;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .main {
+            margin-left: 40%;
+        }
+
+        .sidenav {
+            width: 40%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+        }
+
+        .login-form {
+            margin-top: 80%;
+        }
+
+    }
+
+    .login-main-text {
+        margin-top: 20%;
+        padding: 60px;
+        color: #fff;
+    }
+
+    .login-main-text h2 {
+        font-weight: 300;
+    }
+</style>
+
+<body>
+
+<div class="sidenav">
+    <div class="login-main-text">
+        <img src="https://i.ibb.co/ccVsJfV/logo.png"/>
+
+    </div>
+</div>
+<div class="main">
+    <div class="col-md-6 col-sm-12">
+        <div class="login-form">
+            <form th:action="@{/login}" method="post">
+
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">Invalid username or password.
+                    </div>
+                </div>
+
+                <div th:if="${param.logout}">
+                    <div class="alert alert-info">You have been logged out.</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="username"> Username </label> :
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter Email" autofocus="autofocus">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>: 
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password"/>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
